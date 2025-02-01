@@ -1,2 +1,2 @@
 # kipp-watch
-Creative start-up simulation exercise
+Creative start-up simulation game
