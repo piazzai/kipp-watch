@@ -53,17 +53,17 @@ visionaries <- filter(roles, grepl("Visionary", Role)) %>% pull(Name)
 investors <- filter(roles, grepl("Investor", Role)) %>% pull(Name)
 employees <- filter(roles, grepl("Employee", Role)) %>% pull(Name)
 
-# calculate scores
+# calculate team points
 
 team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
     team_investors <- filter(teams, grepl("Investor", Role), Challenge == i) %>% pull(Name)
     team_employees <- filter(teams, grepl("Employee", Role), Challenge == i) %>% pull(Name)
     team_skillsets <- filter(skillsets, Name %in% team_employees)
     best_skills <- select(team_skillsets, -Name, -Role) %>%
-        gather(key = "Rank", value = "Skill") %>%
-        mutate(Rank = as.integer(str_remove_all(Rank, "[^[:digit:]]"))) %>%
+        pivot_longer(c(`Skill 1`, `Skill 2`, `Skill 3`), names_to = "Rank", values_to = "Skill") %>%
+        mutate(Rank = as.integer(str_remove_all(Rank, "Skill "))) %>%
         group_by(Skill) %>%
-        slice_max(Skill, with_ties = FALSE) %>%
+        slice_min(Rank, with_ties = FALSE) %>%
         pull(Rank) %>%
         setNames(skills)
     if (length(team_employees) >= l && length(team_employees) <= u) {
@@ -73,6 +73,8 @@ team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
     }
     tibble(Challenge = i, Investors = length(team_investors), Employees = length(team_employees), Points = points)
 } %>% arrange(-Points)
+
+# assign scores
 
 compute_scores <- function(x) {
     foreach(i = x, .combine = bind_rows) %do% {
@@ -94,6 +96,23 @@ results <- list(
     Investors = compute_scores(investors),
     Employees = compute_scores(employees)
 )
+
+# tabulate skills
+
+skill_list <- pivot_longer(skillsets, c(`Skill 1`, `Skill 2`, `Skill 3`), names_to = "Rank", values_to = "Skill") %>%
+    mutate(Rank = as.integer(str_remove_all(Rank, "Skill ")))
+
+skill_results <- foreach(i = skills, .combine = bind_rows) %do% {
+    total <- filter(skill_list, Skill == i) %>% nrow()
+    first <- filter(skill_list, Skill == i, Rank == 1) %>% nrow()
+    second <- filter(skill_list, Skill == i, Rank == 2) %>% nrow()
+    third <- filter(skill_list, Skill == i, Rank == 3) %>% nrow()
+    skill_employees <- filter(skill_list, Skill == i) %>% pull(Name)
+    tokens <- filter(results[["Employees"]], Name %in% skill_employees) %>% pull(Tokens) %>% mean() %>% round(2)
+    tibble_row(Skill = i, Total = total, First = first, Second = second, Third = third, `Avg. Tokens` = tokens)
+} %>% arrange(-Total)
+
+results[["Skills"]] <- skill_results
 
 # save to markdown
 
@@ -127,3 +146,6 @@ message("Saved to results/investors.md")
 
 save_md("Employees")
 message("Saved to results/employees.md")
+
+save_md("Skills")
+message("Saved to results/skills.md")
