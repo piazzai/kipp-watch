@@ -5,12 +5,12 @@
  *********************************************/
 :root {
   --r-background-color: var(--oc-gray-9);
-  --r-main-font: Inter, sans-serif;
-  --r-main-font-size: 2.5rem;
+  --r-main-font: Fira Sans, sans-serif;
+  --r-main-font-size: 2rem;
   --r-main-color: var(--oc-gray-0);
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Inter, sans-serif;
+  --r-heading-font: Fira Sans, sans-serif;
   --r-heading-color: var(--oc-gray-0);
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
@@ -23,10 +23,10 @@
   --r-heading3-size: 1.3em;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
-  --r-link-color: var(--oc-blue-5);
-  --r-link-color-dark: var(--oc-blue-7);
-  --r-link-color-hover: var(--oc-blue-3);
-  --r-selection-background-color: var(--oc-red-7);
+  --r-link-color: var(--oc-orange-5);
+  --r-link-color-dark: var(--oc-orange-7);
+  --r-link-color-hover: var(--oc-orange-3);
+  --r-selection-background-color: var(--oc-gray-7);
   --r-selection-color: #fff;
   --r-overlay-element-bg-color: 240, 240, 240;
   --r-overlay-element-fg-color: 0, 0, 0;
