@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "Fira Mono";
+    font-display: block;
+    font-style: normal;
+    font-weight: 400;
+    src: url("./FiraMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    font-display: block;
+    font-style: normal;
+    font-weight: 500;
+    src: url("./FiraMono-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Mono";
+    font-display: block;
+    font-style: normal;
+    font-weight: 700;
+    src: url("./FiraMono-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: normal;
+    font-weight: 400;
+    src: url("./FiraSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: italic;
+    font-weight: 400;
+    src: url("./FiraSans-Italic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: normal;
+    font-weight: 500;
+    src: url("./FiraSans-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: italic;
+    font-weight: 500;
+    src: url("./FiraSans-MediumItalic.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: normal;
+    font-weight: 700;
+    src: url("./FiraSans-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fira Sans";
+    font-display: block;
+    font-style: italic;
+    font-weight: 700;
+    src: url("./FiraSans-BoldItalic.woff2") format("woff2");
+}
