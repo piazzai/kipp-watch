@@ -1,0 +1,31 @@
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+@import url(./fonts/inter/fira.css);
+
+$backgroundColor: var(--oc-gray-9);
+$mainColor: var(--oc-gray-0);
+$headingColor: var(--oc-gray-0);
+
+$mainFontSize: 2.5rem;
+$mainFont: 'Fira Sans', sans-serif;
+$headingFont: 'Fira Sans', sans-serif;
+$headingTextTransform: none;
+$headingFontWeight: bold;
+
+$linkColor: var(--oc-blue-5);
+$linkColorDark: var(--oc-blue-7);
+$linkColorHover: var(--oc-blue-3);
+$selectionBackgroundColor: var(--oc-red-7);
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
