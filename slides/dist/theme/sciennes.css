@@ -1,15 +1,16 @@
 @import url(./fonts/inter/fira.css);
+@import url(./fonts/inter/inter.css);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 :root {
   --r-background-color: var(--oc-gray-9);
-  --r-main-font: Fira Sans, sans-serif;
+  --r-main-font: Inter, sans-serif;
   --r-main-font-size: 2.5rem;
   --r-main-color: var(--oc-gray-0);
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Fira Sans, sans-serif;
+  --r-heading-font: Inter, sans-serif;
   --r-heading-color: var(--oc-gray-0);
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;

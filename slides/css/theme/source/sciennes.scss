@@ -5,14 +5,15 @@
 // ---------------------------------------------
 
 @import url(./fonts/inter/fira.css);
+@import url(./fonts/inter/inter.css);
 
 $backgroundColor: var(--oc-gray-9);
 $mainColor: var(--oc-gray-0);
 $headingColor: var(--oc-gray-0);
 
 $mainFontSize: 2.5rem;
-$mainFont: 'Fira Sans', sans-serif;
-$headingFont: 'Fira Sans', sans-serif;
+$mainFont: 'Inter', sans-serif;
+$headingFont: 'Inter', sans-serif;
 $headingTextTransform: none;
 $headingFontWeight: bold;
 
