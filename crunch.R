@@ -64,8 +64,7 @@ team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
         mutate(Rank = as.integer(str_remove_all(Rank, "Skill "))) %>%
         group_by(Skill) %>%
         slice_min(Rank, with_ties = FALSE) %>%
-        pull(Rank) %>%
-        setNames(skills)
+        pull(Rank)
     if (length(team_employees) >= l && length(team_employees) <= u) {
         points <- sum(best_skills ^ -1) %>% round(2)
     } else {
@@ -79,10 +78,17 @@ team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
 compute_scores <- function(x) {
     foreach(i = x, .combine = bind_rows) %do% {
         challenge <- filter(teams, Name == i) %>% pull(Challenge)
-        team_points <- filter(team_results, Challenge == challenge) %>% pull(Points)
-        team_investors <- filter(teams, grepl("Investor", Role), Challenge == challenge) %>% pull(Name)
-        tokens <- filter(teams, Name == i) %>% pull(Tokens)
-        player_points <- team_points * (1 + length(team_investors)) * tokens
+        if (is.na(challenge)) {
+            team_points <- NA
+            team_investors <- NA
+            tokens <- 0
+            player_points <- 0
+        } else {
+            team_points <- filter(team_results, Challenge == challenge) %>% pull(Points)
+            team_investors <- filter(teams, grepl("Investor", Role), Challenge == challenge) %>% pull(Name)
+            tokens <- filter(teams, Name == i) %>% pull(Tokens)
+            player_points <- team_points * (1 + length(team_investors)) * tokens
+        }
         tibble_row(Name = i, Challenge = challenge, Tokens = tokens, Points = player_points)
     } %>% mutate(Score = round(Points / max(Points), 3) * 100) %>%
         select(-Points) %>%
