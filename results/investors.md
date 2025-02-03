@@ -1,5 +1,4 @@
-## Investors
-Name | Challenge | Tokens | Score
+Investor | Team | Tokens | Score
 --- | --- | --- | ---
 Alexander Costandine | TIC | 14 | 100.0
 Sahla al-Shaheed | TIC | 12 | 85.7

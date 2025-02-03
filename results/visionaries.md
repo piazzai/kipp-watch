@@ -1,5 +1,4 @@
-## Visionaries
-Name | Challenge | Tokens | Score
+Visionary | Team | Tokens | Score
 --- | --- | --- | ---
 Aliyah Lloyd | TIC | 4 | 100.0
 Henry Warren | YYY | 4 | 97.2

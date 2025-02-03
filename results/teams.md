@@ -1,4 +1,4 @@
-Challenge | Investors | Employees | Points
+Team | Investors | Employees | Points
 --- | --- | --- | ---
 SUP | 0 | 8 | 6.33
 TIC | 3 | 7 | 6.00

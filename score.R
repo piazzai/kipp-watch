@@ -65,13 +65,13 @@ team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
     } else {
         points <- 0
     }
-    tibble(Challenge = i, Investors = length(team_investors), Employees = length(team_employees), Points = points)
+    tibble(Team = i, Investors = length(team_investors), Employees = length(team_employees), Points = points)
 } %>% arrange(-Points)
 
 # assign scores
 
-compute_scores <- function(x) {
-    foreach(i = x, .combine = bind_rows) %do% {
+compute_scores <- function(x, title = NULL) {
+    ranking <- foreach(i = x, .combine = bind_rows) %do% {
         challenge <- filter(teams, Name == i) %>% pull(Challenge)
         if (is.na(challenge)) {
             team_points <- NA
@@ -79,23 +79,27 @@ compute_scores <- function(x) {
             tokens <- 0
             player_points <- 0
         } else {
-            team_points <- filter(team_results, Challenge == challenge) %>% pull(Points)
+            team_points <- filter(team_results, Team == challenge) %>% pull(Points)
             team_investors <- filter(teams, grepl("Investor", Role), Challenge == challenge) %>% pull(Name)
             tokens <- filter(teams, Name == i) %>% pull(Tokens)
             player_points <- team_points * (1 + length(team_investors)) * tokens
         }
-        tibble_row(Name = i, Challenge = challenge, Tokens = tokens, Points = player_points)
+        tibble_row(Name = i, Team = challenge, Tokens = tokens, Points = player_points)
     } %>% mutate(Score = round(Points / max(Points), 3) * 100) %>%
         select(-Points) %>%
         arrange(-Score) %>%
         head(10)
+    if (!is.null(title)) {
+        colnames(ranking)[1] <- title
+    }
+    ranking
 }
 
 results <- list(
     Teams = team_results,
-    Visionaries = compute_scores(visionaries),
-    Investors = compute_scores(investors),
-    Employees = compute_scores(employees)
+    Visionaries = compute_scores(visionaries, "Visionary"),
+    Investors = compute_scores(investors, "Investor"),
+    Employees = compute_scores(employees, "Employee")
 )
 
 # tabulate skills
@@ -109,7 +113,7 @@ skill_results <- foreach(i = skills, .combine = bind_rows) %do% {
     second <- filter(skill_list, Skill == i, Rank == 2) %>% nrow()
     third <- filter(skill_list, Skill == i, Rank == 3) %>% nrow()
     skill_employees <- filter(skill_list, Skill == i) %>% pull(Name)
-    tokens <- filter(results[["Employees"]], Name %in% skill_employees) %>% pull(Tokens) %>% mean() %>% round(2)
+    tokens <- filter(results[["Employees"]], Employee %in% skill_employees) %>% pull(Tokens) %>% mean() %>% round(2)
     tibble_row(Skill = i, Any = any, `1st` = first, `2nd` = second, `3rd` = third, Tokens = tokens)
 } %>% arrange(-Any)
 
@@ -140,18 +144,12 @@ save_md("Teams")
 message("saved to results/teams.md")
 
 save_md("Visionaries")
-contents <- readLines("results/visionaries.md")
-c("## Visionaries", contents) %>% writeLines("results/visionaries.md")
 message("saved to results/visionaries.md")
 
 save_md("Investors")
-contents <- readLines("results/investors.md")
-c("## Investors", contents) %>% writeLines("results/investors.md")
 message("saved to results/investors.md")
 
 save_md("Employees")
-contents <- readLines("results/employees.md")
-c("## Employees", contents) %>% writeLines("results/employees.md")
 message("saved to results/employees.md")
 
 save_md("Skills")

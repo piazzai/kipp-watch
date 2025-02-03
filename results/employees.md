@@ -1,5 +1,4 @@
-## Employees
-Name | Challenge | Tokens | Score
+Employee | Team | Tokens | Score
 --- | --- | --- | ---
 Piper Mahnken | TIC | 18 | 100.0
 Sila Mam | TIC | 17 | 94.4
