@@ -5,12 +5,7 @@ suppressWarnings(suppressMessages(library(readxl)))
 
 args <- commandArgs(trailingOnly = TRUE)
 
-challenges <- c(
-    "Festival Zero",
-    "StART-up",
-    "This Is Contemporary",
-    "You! Yes, You!"
-)
+challenges <- c("FZ", "SUP", "TIC", "YYY")
 
 skills <- c(
     "Community Leadership",
