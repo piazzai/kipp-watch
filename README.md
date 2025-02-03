@@ -4,9 +4,11 @@ These are materials for a classroom simulation game developed for students of th
 
 Credit for the initial adaptation goes to [Giovanni Formilan](https://www.business-school.ed.ac.uk/staff/giovanni-formilan) and [Vikki Jones](https://efi.ed.ac.uk/people/vikki-jones/).
 
-## Materials
+## Required materials
 
 * Name tags
 * Colored stickers
 * Flash cards
-* Tokens
+* Tokens (400)
+* Challenge handouts
+* Roster handouts
