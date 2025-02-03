@@ -1,4 +1,4 @@
-Skill | Total | First | Second | Third | Avg. Tokens
+Skill | Any | 1st | 2nd | 3rd | Tokens
 --- | --- | --- | --- | --- | ---
 Community Leadership | 17 | 5 | 7 | 5 | 15.14
 Data Analysis | 14 | 3 | 6 | 5 | 15.00
