@@ -4,7 +4,6 @@
 @import "../template/settings";
 // ---------------------------------------------
 
-@import url(./fonts/inter/fira.css);
 @import url(./fonts/inter/inter.css);
 
 $backgroundColor: var(--oc-gray-9);
@@ -26,6 +25,30 @@ $heading1Size: 2.5em;
 $heading2Size: 1.6em;
 $heading3Size: 1.3em;
 $heading4Size: 1.0em;
+
+$colors: (
+  "gray",
+  "red",
+  "pink",
+  "grape",
+  "violet",
+  "indigo",
+  "blue",
+  "cyan",
+  "teal",
+  "green",
+  "lime",
+  "yellow",
+  "orange",
+);
+
+@each $color in $colors {
+    @for $scale from 0 through 9 {
+      .oc-#{$color}-#{$scale} {
+        color: rgb(var(--oc-#{$color}-#{$scale}-rgb)) !important;
+      }
+    }
+  }
 
 // Theme template ------------------------------
 @import "../template/theme";
