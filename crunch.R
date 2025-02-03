@@ -104,14 +104,14 @@ skill_list <- pivot_longer(skillsets, c(`Skill 1`, `Skill 2`, `Skill 3`), names_
     mutate(Rank = as.integer(str_remove_all(Rank, "Skill ")))
 
 skill_results <- foreach(i = skills, .combine = bind_rows) %do% {
-    total <- filter(skill_list, Skill == i) %>% nrow()
+    any <- filter(skill_list, Skill == i) %>% nrow()
     first <- filter(skill_list, Skill == i, Rank == 1) %>% nrow()
     second <- filter(skill_list, Skill == i, Rank == 2) %>% nrow()
     third <- filter(skill_list, Skill == i, Rank == 3) %>% nrow()
     skill_employees <- filter(skill_list, Skill == i) %>% pull(Name)
     tokens <- filter(results[["Employees"]], Name %in% skill_employees) %>% pull(Tokens) %>% mean() %>% round(2)
-    tibble_row(Skill = i, Total = total, First = first, Second = second, Third = third, `Avg. Tokens` = tokens)
-} %>% arrange(-Total)
+    tibble_row(Skill = i, Any = any, `1st` = first, `2nd` = second, `3rd` = third, Tokens = tokens)
+} %>% arrange(-Any)
 
 results[["Skills"]] <- skill_results
 
@@ -140,12 +140,18 @@ save_md("Teams")
 message("Saved to results/teams.md")
 
 save_md("Visionaries")
+contents <- readLines("results/visionaries.md")
+c("## Visionaries", contents) %>% writeLines("results/visionaries.md")
 message("Saved to results/visionaries.md")
 
 save_md("Investors")
+contents <- readLines("results/investors.md")
+c("## Investors", contents) %>% writeLines("results/investors.md")
 message("Saved to results/investors.md")
 
 save_md("Employees")
+contents <- readLines("results/employees.md")
+c("## Employees", contents) %>% writeLines("results/employees.md")
 message("Saved to results/employees.md")
 
 save_md("Skills")
