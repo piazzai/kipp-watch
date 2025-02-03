@@ -23,14 +23,14 @@ skills <- c(
 # set parameters
 
 if (length(args) < 3) {
-    message("Player numbers not (fully) specified, simulating 42 4 8")
+    message("player numbers not (fully) specified, simulating 42 4 8")
     n <- c(players = 42, visionaries = 4, investors = 8)
 } else {
     n <- c(players = as.integer(args[1]), visionaries = as.integer(args[2]), investors = as.integer(args[3]))
 }
 
 if (length(args) > 3) {
-    paste("Warning: Argument(s)", paste(args[-c(1:3)], collapse = ", "), "ignored") %>% message()
+    paste("warning: argument(s)", paste(args[-c(1:3)], collapse = ", "), "ignored") %>% message()
 }
 
 # assign roles
@@ -124,7 +124,7 @@ writeData(export, "teams", teams)
 
 saveWorkbook(export, "data/simulated.xlsx", overwrite = TRUE)
 
-message("Saved to data/simulated.xlsx")
+message("saved to data/simulated.xlsx")
 
 # check consistency with example data
 
@@ -133,6 +133,6 @@ if (file.exists("data/example.xlsx")) {
     check_skillsets <- read_excel("data/example.xlsx", sheet = "skillsets") %>% identical(skillsets)
     check_teams <- read_excel("data/example.xlsx", sheet = "teams") %>% identical(teams)
     if (!all(check_roles, check_skillsets, check_teams)) {
-        message("Warning: Inconsistencies with data/example.xlsx")
+        message("warning: inconsistencies with data/example.xlsx")
     }
 }

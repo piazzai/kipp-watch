@@ -21,7 +21,7 @@ skills <- c(
 # import data
 
 if (length(args) < 1) {
-    message("Data not specified, crunching data/example.xlsx")
+    message("data not specified, crunching data/example.xlsx")
     import <- "data/example.xlsx"
 } else {
     import <- paste0("data/", args[1]) %>%
@@ -33,7 +33,7 @@ skillsets <- read_excel(import, "skillsets")
 teams <- read_excel(import, "teams")
 
 if (length(args) > 1) {
-    paste("Warning: Argument(s)", paste(args[-1], collapse = ", "), "ignored") %>% message()
+    paste("warning: argument(s)", paste(args[-1], collapse = ", "), "ignored") %>% message()
 }
 
 # retrieve parameters
@@ -137,22 +137,22 @@ save_md <- function(x) {
 }
 
 save_md("Teams")
-message("Saved to results/teams.md")
+message("saved to results/teams.md")
 
 save_md("Visionaries")
 contents <- readLines("results/visionaries.md")
 c("## Visionaries", contents) %>% writeLines("results/visionaries.md")
-message("Saved to results/visionaries.md")
+message("saved to results/visionaries.md")
 
 save_md("Investors")
 contents <- readLines("results/investors.md")
 c("## Investors", contents) %>% writeLines("results/investors.md")
-message("Saved to results/investors.md")
+message("saved to results/investors.md")
 
 save_md("Employees")
 contents <- readLines("results/employees.md")
 c("## Employees", contents) %>% writeLines("results/employees.md")
-message("Saved to results/employees.md")
+message("saved to results/employees.md")
 
 save_md("Skills")
-message("Saved to results/skills.md")
+message("saved to results/skills.md")
