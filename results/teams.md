@@ -1,6 +1,6 @@
 Team | Investors | Employees | Points
 --- | --- | --- | ---
-SUP | 0 | 8 | 6.33
-TIC | 3 | 7 | 6.00
-YYY | 3 | 7 | 5.83
-FZ | 2 | 8 | 5.67
+SUP | 1 | 4 | 5.17
+TIC | 1 | 6 | 4.33
+FZ | 2 | 4 | 4.17
+YYY | 3 | 2 | 2.67

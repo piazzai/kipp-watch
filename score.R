@@ -40,7 +40,7 @@ if (length(args) > 1) {
 
 n <- filter(roles, grepl("Employee", Role)) %>% nrow()
 u <- c(n / 4) %>% ceiling()
-l <- c(n / 4) %>% floor()
+l <- 0
 
 # retrieve roles
 
@@ -69,6 +69,8 @@ team_results <- foreach(i = challenges, .combine = bind_rows) %do% {
 } %>% arrange(-Points)
 
 # assign scores
+
+employees <- employees[employees %in% skillsets$Name]
 
 compute_scores <- function(x, title = NULL) {
     ranking <- foreach(i = x, .combine = bind_rows) %do% {

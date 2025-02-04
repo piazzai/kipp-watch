@@ -1,12 +1,12 @@
 Employee | Team | Tokens | Score
 --- | --- | --- | ---
-Piper Mahnken | TIC | 18 | 100.0
-Sila Mam | TIC | 17 | 94.4
-Kei Kumagai | YYY | 16 | 86.4
-Marcus Vorrice | YYY | 14 | 75.6
-Siddeeqi al-Can | TIC | 13 | 72.2
-Faatih el-Baig | YYY | 13 | 70.2
-Amari Burukie | FZ | 17 | 66.9
-Joshua Eckhart | YYY | 12 | 64.8
-Isaiah Martinez | FZ | 15 | 59.1
-Sahar Westbrook | FZ | 15 | 59.1
+Sakurako Watanabe | YYY | 18 | 100.0
+Xueyi Zeng | YYY | 18 | 100.0
+Chinny Zheng | SUP | 12 | 64.5
+Anisa Mahardika | FZ | 7 | 45.6
+Gita Gracia Merimta | FZ | 7 | 45.6
+Lu Li | FZ | 7 | 45.6
+Xinyi Ding | FZ | 7 | 45.6
+Huiya Li | TIC | 7 | 31.5
+Icy Zou | TIC | 7 | 31.5
+Karin Song | TIC | 7 | 31.5

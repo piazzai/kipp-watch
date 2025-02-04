@@ -1,6 +1,6 @@
 Visionary | Team | Tokens | Score
 --- | --- | --- | ---
-Aliyah Lloyd | TIC | 4 | 100.0
-Henry Warren | YYY | 4 | 97.2
-Yoselin Van | FZ | 5 | 88.6
-Hunter Wing | SUP | 4 | 26.4
+Naia Ammane | SUP | 53 | 100.0
+Aurelia Ng | FZ | 42 | 95.9
+Pei Liu | TIC | 38 | 60.0
+Hayoung Park | YYY | 16 | 31.2
