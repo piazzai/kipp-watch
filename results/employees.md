@@ -1,12 +1,12 @@
 Employee | Team | Tokens | Score
 --- | --- | --- | ---
-Sakurako Watanabe | YYY | 18 | 100.0
-Xueyi Zeng | YYY | 18 | 100.0
-Chinny Zheng | SUP | 12 | 64.5
-Anisa Mahardika | FZ | 7 | 45.6
-Gita Gracia Merimta | FZ | 7 | 45.6
-Lu Li | FZ | 7 | 45.6
-Xinyi Ding | FZ | 7 | 45.6
-Huiya Li | TIC | 7 | 31.5
-Icy Zou | TIC | 7 | 31.5
-Karin Song | TIC | 7 | 31.5
+Sakurako | YYY | 18 | 100.0
+Xueyi | YYY | 18 | 100.0
+Chinny | SUP | 12 | 64.5
+Anisa | FZ | 7 | 45.6
+Gita | FZ | 7 | 45.6
+Lu | FZ | 7 | 45.6
+Xinyi | FZ | 7 | 45.6
+Huiya | TIC | 7 | 31.5
+Icy | TIC | 7 | 31.5
+Karin | TIC | 7 | 31.5
